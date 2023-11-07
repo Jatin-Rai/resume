@@ -2,7 +2,11 @@ import React from "react";
 
 import { NavigationDots, SocialMedia } from "@/components";
 
-const Wrapper = (Component, idName, classNames?) =>
+const Wrapper = (
+  Component: React.ComponentType,
+  idName: string,
+  classNames?: string
+) =>
   function HOC() {
     const currentYear = new Date().getFullYear();
     return (

@@ -10,8 +10,15 @@ import "./About.scss";
 import { client, urlFor } from "@/sanity/client";
 import { Wrapper, MotionWrap } from "@/wrapper";
 
-const About = () => {
-  const [abouts, setAbouts] = useState([]);
+interface AboutData {
+  _type: string;
+  title: string;
+  imgUrl: string;
+  description: string;
+}
+
+const About: React.FC = () => {
+  const [abouts, setAbouts] = useState<AboutData[]>([]);
 
   useEffect(() => {
     const query = `*[_type == "abouts"]`;

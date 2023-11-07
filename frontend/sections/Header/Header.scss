@@ -194,3 +194,17 @@
     margin: 2rem 0;
   }
 }
+
+.app__cv {
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+
+.app__download-icon {
+  font-size: large;
+  margin-left: 1rem;
+}

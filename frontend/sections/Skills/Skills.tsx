@@ -7,9 +7,26 @@ import { Wrapper, MotionWrap } from "@/wrapper";
 import { urlFor, client } from "@/sanity/client";
 import "./Skills.scss";
 
-const Skills = () => {
-  const [experiences, setExperiences] = useState([]);
-  const [skills, setSkills] = useState([]);
+// Define an interface for a skill
+interface Skill {
+  _type: string;
+  name: string;
+  bgColor: string;
+  icon: string;
+}
+interface Experience {
+  _type: string;
+  year: string;
+  works: {
+    name: string;
+    company: string;
+    desc: string;
+  }[];
+}
+
+const Skills: React.FC = () => {
+  const [experiences, setExperiences] = useState<Experience[]>([]);
+  const [skills, setSkills] = useState<Skill[]>([]);
 
   useEffect(() => {
     const query = '*[_type == "experiences"]';

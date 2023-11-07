@@ -7,9 +7,15 @@ import { Wrapper, MotionWrap } from "@/wrapper";
 import { client } from "@/sanity/client";
 import "./Footer.scss";
 
-const Footer = () => {
-  const [formData, setFormData] = useState({
-    name: "",
+interface FormData {
+  username: string;
+  email: string;
+  message: string;
+}
+
+const Footer: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
+    username: "",
     email: "",
     message: "",
   });
@@ -18,7 +24,9 @@ const Footer = () => {
 
   const { username, email, message } = formData;
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -44,7 +52,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="app__footer"/>
+      <div className="app__footer" />
       <h2 className="head-text">
         Take a <span>coffee</span> & <span>chat</span> with me
       </h2>

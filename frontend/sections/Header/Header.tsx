@@ -2,12 +2,15 @@
 
 import React from "react";
 import Image from "next/image";
-import "./Header.scss";
 
+import "./Header.scss";
+import { MdFileDownload } from "react-icons/md";
 import { motion } from "framer-motion";
 import { images } from "@/constants";
 
 import { Wrapper } from "@/wrapper";
+
+interface HeaderProps {}
 
 const scaleVariants = {
   whileInView: {
@@ -20,7 +23,7 @@ const scaleVariants = {
   },
 };
 
-const Header = () => {
+const Header: React.FC<HeaderProps> = () => {
   return (
     <div className="app__header app__flex">
       <motion.div
@@ -38,10 +41,21 @@ const Header = () => {
           </div>
 
           <div className="tag-cmp app__flex">
-            <p className="p-text">Software Engineer</p>
             <p className="p-text">Frontend Developer</p>
+            <p className="p-text">Software Engineer</p>
             <p className="p-text">Web Developer</p>
             <p className="p-text">Tech Geek</p>
+          </div>
+          <div className="tag-cmp app__flex">
+            <a
+              href="/cv/jatin-rai-cv.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="p-text app__flex app__cv"
+            >
+              My CV
+              <MdFileDownload className="app__download-icon" />
+            </a>
           </div>
         </div>
       </motion.div>

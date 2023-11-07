@@ -11,22 +11,32 @@ import { Wrapper, MotionWrap } from "@/wrapper";
 
 import { client, urlFor } from "@/sanity/client";
 
-const Work = () => {
-  const [works, setWorks] = useState([]);
-  const [filterWork, setFilterWork] = useState([]);
+interface WorkItem {
+  name: string;
+  imgUrl: string;
+  projectLink: string;
+  codeLink: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+const Work: React.FC = () => {
+  const [works, setWorks] = useState<WorkItem[]>([]);
+  const [filterWork, setFilterWork] = useState<WorkItem[]>([]);
   const [activeFilter, setActiveFilter] = useState("All");
-  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [animateCard, setAnimateCard] = useState<{}>({ y: 0, opacity: 1 });
 
   useEffect(() => {
     const query = '*[_type == "works"]';
 
-    client.fetch(query).then((data) => {
+    client.fetch(query).then((data: WorkItem[]) => {
       setWorks(data);
       setFilterWork(data);
     });
   }, []);
 
-  const handleWorkFilter = (item) => {
+  const handleWorkFilter = (item: string) => {
     setActiveFilter(item);
     setAnimateCard([{ y: 100, opacity: 0 }]);
 
