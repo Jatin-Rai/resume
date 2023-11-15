@@ -32,7 +32,6 @@ const Blog = () => {
     const query = `*[_type == "blogs"] | order(_createdAt desc)`;
 
     client.fetch(query).then((data) => {
-      console.log(data);
       setBlogs(data);
     });
   }, []);

@@ -45,11 +45,11 @@ const BlogDetail = () => {
   }, [slug]);
 
   return (
-    <div className="app__blog-detail">
+    <>
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <div className="app__blog-detail">
           <div className="app__blog-link-container">
             <Link href="/blogs">Go Back</Link>
             <Link href="/">Home</Link>
@@ -81,9 +81,9 @@ const BlogDetail = () => {
             <Link href="/blogs">Go Back</Link>
             <Link href="/">Home</Link>
           </div>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
