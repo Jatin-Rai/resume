@@ -29,7 +29,7 @@ const Blog = () => {
   };
 
   useEffect(() => {
-    const query = `*[_type == "blogs"]`;
+    const query = `*[_type == "blogs"] | order(_createdAt desc)`;
 
     client.fetch(query).then((data) => {
       console.log(data);
