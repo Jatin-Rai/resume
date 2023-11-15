@@ -1,13 +1,15 @@
 "use client";
 
 import React from "react";
+import "./Header.scss";
+
 import Image from "next/image";
 
-import "./Header.scss";
 import { MdFileDownload } from "react-icons/md";
-import { motion } from "framer-motion";
-import { images } from "@/constants";
 
+import { motion } from "framer-motion";
+
+import { images } from "@/constants";
 import { Wrapper } from "@/wrapper";
 
 interface HeaderProps {}

@@ -1,13 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import ReactTooltip from "react-tooltip";
-import { Wrapper, MotionWrap } from "@/wrapper";
-import { urlFor, client } from "@/sanity/client";
 import "./Skills.scss";
 
-// Define an interface for a skill
+import Image from "next/image";
+
+import { motion } from "framer-motion";
+
+import ReactTooltip from "react-tooltip";
+
+import { Wrapper, MotionWrap } from "@/wrapper";
+import { urlFor, client } from "@/sanity/client";
+
 interface Skill {
   _type: string;
   name: string;

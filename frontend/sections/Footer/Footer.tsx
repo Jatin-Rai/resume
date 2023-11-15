@@ -1,11 +1,13 @@
 "use client";
+
 import React, { useState } from "react";
+import "./Footer.scss";
+
 import Image from "next/image";
 
 import { images } from "@/constants";
-import { Wrapper, MotionWrap } from "@/wrapper";
 import { client } from "@/sanity/client";
-import "./Footer.scss";
+import { Wrapper, MotionWrap } from "@/wrapper";
 
 interface FormData {
   username: string;

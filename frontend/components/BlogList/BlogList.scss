@@ -1,0 +1,20 @@
+.blog__list-container {
+    padding: 7rem 3rem;
+  
+    .go-back-link {
+      border: 1px solid var(--gray-color);
+      padding: 0.3rem .7rem;
+      border-radius: 5px;
+      text-decoration: none;
+      color: var(--gray-color);
+  
+      &:hover {
+        background-color: var(--gray-color);
+        color: var(--white-color);
+      }
+    }
+  }
+  
+  ul {
+    list-style: none;
+  }

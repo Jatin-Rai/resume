@@ -1,14 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import "./Work.scss";
+
 import Image from "next/image";
 
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 
 import { motion } from "framer-motion";
 
-import "./Work.scss";
 import { Wrapper, MotionWrap } from "@/wrapper";
-
 import { client, urlFor } from "@/sanity/client";
 
 interface WorkItem {

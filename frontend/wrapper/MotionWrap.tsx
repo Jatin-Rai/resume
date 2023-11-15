@@ -1,8 +1,10 @@
 "use client";
+
 import React from "react";
+
 import { motion } from "framer-motion";
 
-const MotionWrap = (Component: React.ComponentType, classNames: string) =>
+const MotionWrap = (Component: React.ComponentType, classNames?: string) =>
   function HOC() {
     return (
       <motion.div

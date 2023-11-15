@@ -7,7 +7,7 @@ interface NavigationDotsProps {
 const NavigationDots = ({ active }: NavigationDotsProps) => {
   return (
     <div className="app__navigation">
-      {["home", "about", "portfolio", "skills", "contact"].map(
+      {["home", "about","blog","portfolio", "skills", "contact"].map(
         (item, index) => (
           <a
             href={`#${item}`}

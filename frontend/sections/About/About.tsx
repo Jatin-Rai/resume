@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import "./About.scss";
+
 import Image from "next/image";
 
 import { motion } from "framer-motion";
 
-import "./About.scss";
-
-import { client, urlFor } from "@/sanity/client";
 import { Wrapper, MotionWrap } from "@/wrapper";
+import { client, urlFor } from "@/sanity/client";
 
 interface AboutData {
   _type: string;

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import "./globals.css";
+
+import "./globals.scss";
+
 import { Navbar } from "@/components";
 
 export const metadata: Metadata = {
   title: "Jatin Rai",
   description:
-    "Jatin Rai - Software Engineer, Frontend Developer and Tech Geek",
+    "Jatin Rai - Software Engineer | Frontend Developer | Web Developer",
 };
 
 export default function RootLayout({

@@ -1,26 +1,31 @@
 "use client";
-import React, { useState } from "react";
 
+import React, { useState } from "react";
 import "./Navbar.scss";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import { images } from "@/constants";
+
 import { motion } from "framer-motion";
 
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 
-import Image from "next/image";
-import { images } from "@/constants";
-
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+
+  const navItems = ["home", "about", "blog", "portfolio", "skills", "contact"];
 
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <a href="#home">
-        <Image src={images.logo} alt="logo" />
-        </a>
+        <Link href="/">
+          <Image src={images.logo} alt="logo" />
+        </Link>
       </div>
       <ul className="app__navbar-links">
-        {["home", "about", "portfolio", "skills", "contact"].map((item) => (
+        {navItems.map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
             <div />
             <a href={`#${item}`}>{item}</a>
@@ -38,7 +43,7 @@ const Navbar = () => {
           >
             <HiX onClick={() => setToggle(false)} />
             <ul>
-              {["home", "about", "portfolio", "skills", "contact"].map((item) => (
+              {navItems.map((item) => (
                 <li key={item}>
                   <a href={`#${item}`} onClick={() => setToggle(false)}>
                     {item}
