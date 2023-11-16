@@ -78,8 +78,8 @@ const BlogDetail = () => {
             </div>
           </article>
           <div className="app__blog-link-container">
-            <Link href="/blogs">Go Back</Link>
-            <Link href="/">Home</Link>
+            <Link href="/blogs" passHref>Go Back</Link>
+            <Link href="/" passHref>Home</Link>
           </div>
         </div>
       )}
