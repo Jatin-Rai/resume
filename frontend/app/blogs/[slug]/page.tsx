@@ -1,10 +1,11 @@
-import BlogDetail from "@/components/BlogDetail/BlogDetail";
+"use client";
+
+import { BlogDetail } from "@/components";
 
 const Blog = () => {
-
   return (
     <>
-     <BlogDetail />
+      <BlogDetail />
     </>
   );
 };
