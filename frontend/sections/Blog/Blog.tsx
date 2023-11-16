@@ -83,8 +83,8 @@ const Blog = () => {
             >
               <HiChevronLeft />
             </div>
-            <Link href="/blogs" as="/blogs" passHref>
-              View All
+            <Link href="/blogs" passHref>
+              <a>View All</a>
             </Link>
 
             <div
