@@ -34,7 +34,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
         ></div>
         <ul className="blog__details">
           <li className="blog__author">
-            <Link href="/">Author: Jatin Rai</Link>
+            <Link href="/" passHref>Author: Jatin Rai</Link>
           </li>
           <li className="blog__date">
             Created: {new Date(_createdAt).toDateString().slice(4)}
@@ -59,7 +59,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
           <PortableText value={body} />
         </p>
         <span className="blog__read-more">
-          <Link href={`/blogs/${slug.current}`}>Read More</Link>
+          <Link href={`/blogs/${slug.current}`} passHref>Read More</Link>
         </span>
       </div>
     </div>

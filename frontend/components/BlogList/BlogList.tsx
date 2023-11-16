@@ -44,7 +44,7 @@ const BlogList: React.FC = () => {
         <Loader />
       ) : (
         <div className="blog__list-container">
-          <Link href=" /" className="go-back-link">
+          <Link href="/" passHref className="go-back-link">
             Home
           </Link>
           <ul>
