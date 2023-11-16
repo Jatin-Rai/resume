@@ -1,5 +1,3 @@
-"use client";
-
 import { BlogDetail } from "@/components";
 
 const Blog = () => {

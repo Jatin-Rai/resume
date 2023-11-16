@@ -1,4 +1,3 @@
-"use client";
 import { BlogList } from "@/components";
 
 const Blogs: React.FC = () => {
