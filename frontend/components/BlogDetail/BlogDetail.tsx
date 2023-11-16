@@ -51,8 +51,12 @@ const BlogDetail = () => {
       ) : (
         <div className="app__blog-detail">
           <div className="app__blog-link-container">
-            <Link href="/blogs" passHref>Go Back</Link>
-            <Link href="/" passHref>Home</Link>
+            <Link href="/blogs" as="/blogs">
+              Go Back
+            </Link>
+            <Link href="/" as="/">
+              Home
+            </Link>
           </div>
           <article>
             <h1>{blog?.title}</h1>
@@ -78,8 +82,12 @@ const BlogDetail = () => {
             </div>
           </article>
           <div className="app__blog-link-container">
-            <Link href="/blogs" passHref>Go Back</Link>
-            <Link href="/" passHref>Home</Link>
+            <Link href="/blogs" as="/blogs">
+              Go Back
+            </Link>
+            <Link href="/" as="/">
+              Home
+            </Link>
           </div>
         </div>
       )}

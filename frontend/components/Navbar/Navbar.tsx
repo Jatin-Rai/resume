@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <Link href="/" passHref>
+        <Link href="/" as="/">
           <Image src={images.logo} alt="logo" />
         </Link>
       </div>
