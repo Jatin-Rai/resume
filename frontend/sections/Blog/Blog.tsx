@@ -60,7 +60,11 @@ const Blog = () => {
                     .slice(4)}
                 </h5>
               </div>
-              <Link href={`/blogs/${blogs[currentIndex].slug.current}`}>
+              <Link
+                href={`/blogs/${blogs[currentIndex].slug.current}`}
+                as={`/blogs/${blogs[currentIndex].slug.current}`}
+                passHref
+              >
                 <span>Read Article</span>
               </Link>
             </div>
@@ -77,7 +81,9 @@ const Blog = () => {
             >
               <HiChevronLeft />
             </div>
-            <Link href="/blogs">View All</Link>
+            <Link href="/blogs" as="/blogs" passHref>
+              View All
+            </Link>
 
             <div
               className="app__flex"
