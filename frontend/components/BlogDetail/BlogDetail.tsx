@@ -51,10 +51,10 @@ const BlogDetail = () => {
       ) : (
         <div className="app__blog-detail">
           <div className="app__blog-link-container">
-            <Link href="/blogs" as="/blogs">
+            <Link href="/blogs" as="/blogs" passHref>
               Go Back
             </Link>
-            <Link href="/" as="/">
+            <Link href="/" as="/" passHref>
               Home
             </Link>
           </div>
@@ -82,10 +82,10 @@ const BlogDetail = () => {
             </div>
           </article>
           <div className="app__blog-link-container">
-            <Link href="/blogs" as="/blogs">
+            <Link href="/blogs" as="/blogs" passHref>
               Go Back
             </Link>
-            <Link href="/" as="/">
+            <Link href="/" as="/" passHref>
               Home
             </Link>
           </div>
