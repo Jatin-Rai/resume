@@ -5,6 +5,7 @@ import "./Blog.scss";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
@@ -21,11 +22,16 @@ interface BlogsData {
 }
 
 const Blog = () => {
+  const router = useRouter();
   const [blogs, setBlogs] = useState<BlogsData[]>([]);
   const [currentIndex, setCurrentIndex] = useState(1);
 
   const handleClick = (index: number) => {
     setCurrentIndex(index);
+  };
+
+  const handleRoute = () => {
+    router.push("/blogs");
   };
 
   useEffect(() => {
@@ -81,7 +87,7 @@ const Blog = () => {
             >
               <HiChevronLeft />
             </div>
-            <Link href="/blogs" as="/blogs" passHref>
+            <Link href="/blogs" onClick={handleRoute}>
               View All
             </Link>
 
