@@ -83,7 +83,7 @@ const Blog = () => {
             >
               <HiChevronLeft />
             </div>
-            <Link href="/blogs" passHref>
+            <Link href="/blogs" passHref={true}>
               <a>View All</a>
             </Link>
 
