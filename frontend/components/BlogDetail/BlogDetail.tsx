@@ -51,10 +51,10 @@ const BlogDetail = () => {
       ) : (
         <div className="app__blog-detail">
           <div className="app__blog-link-container">
-            <Link href="/blogs" as="/blogs" prefetch={false}>
+            <Link href="/blogs">
               Go Back
             </Link>
-            <Link href="/" as="/" prefetch={false}>
+            <Link href="/">
               Home
             </Link>
           </div>
@@ -82,10 +82,10 @@ const BlogDetail = () => {
             </div>
           </article>
           <div className="app__blog-link-container">
-            <Link href="/blogs" as="/blogs" passHref>
+            <Link href="/blogs">
               Go Back
             </Link>
-            <Link href="/" as="/" passHref>
+            <Link href="/">
               Home
             </Link>
           </div>

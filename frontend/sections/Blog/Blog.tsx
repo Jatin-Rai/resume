@@ -28,8 +28,6 @@ const Blog = () => {
     setCurrentIndex(index);
   };
 
-  const handleRoute = () => {};
-
   useEffect(() => {
     const query = `*[_type == "blogs"] | order(_createdAt desc)`;
 
@@ -64,8 +62,6 @@ const Blog = () => {
               </div>
               <Link
                 href={`/blogs/${blogs[currentIndex].slug.current}`}
-                as={`/blogs/${blogs[currentIndex].slug.current}`}
-                passHref
               >
                 <span>Read Article</span>
               </Link>
@@ -83,7 +79,7 @@ const Blog = () => {
             >
               <HiChevronLeft />
             </div>
-            <Link href="/blogs" passHref={true}>
+            <Link href="/blogs">
               <a>View All</a>
             </Link>
 
