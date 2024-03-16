@@ -6,7 +6,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 const SocialMedia = () => {
   return (
     <div className="app__social">
-      <div>
+      {/* <div>
         <a
           href="https://www.instagram.com/jatin.j.rai"
           target="_blank"
@@ -14,7 +14,7 @@ const SocialMedia = () => {
         >
           <BsInstagram />
         </a>
-      </div>
+      </div> */}
       <div>
         <a
           href="https://linkedin.com/in/jatinrai96"
