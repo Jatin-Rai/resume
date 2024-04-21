@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 import { Loader } from "@/components";
-import { About, Blog, Footer, Header, Skills, Work } from "..";
+import { About, Footer, Header, Skills, Work } from "..";
 
 export default function SectionLayout() {
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,6 @@ export default function SectionLayout() {
         <>
           <Header />
           <About />
-          <Blog />
           <Work />
           <Skills />
           <Footer />
