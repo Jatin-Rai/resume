@@ -15,7 +15,7 @@ import { HiMenuAlt4, HiX } from "react-icons/hi";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
-  const navItems = ["home", "about", "portfolio", "skills", "contact"];
+  const navItems = ["home", "about", "projects", "skills", "contact"];
 
   return (
     <nav className="app__navbar">

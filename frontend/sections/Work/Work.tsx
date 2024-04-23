@@ -54,7 +54,7 @@ const Work: React.FC = () => {
     <>
       <div className="app__works" />
       <h2 className="head-text">
-        My <span>Portfolio</span> Section
+        My <span>Projects</span> Section
       </h2>
 
       <div className="app__work-filter">
@@ -137,6 +137,6 @@ const Work: React.FC = () => {
 
 export default Wrapper(
   MotionWrap(Work, "app__works"),
-  "portfolio",
+  "projects",
   "app__primarybg"
 );
