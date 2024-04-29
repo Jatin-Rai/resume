@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import "./Work.scss";
+import "./Project.scss";
 
 import Image from "next/image";
 
@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { Wrapper, MotionWrap } from "@/wrapper";
 import { client, urlFor } from "@/sanity/client";
 
-interface WorkItem {
+interface ProjectItem {
   name: string;
   imgUrl: string;
   projectLink: string;
@@ -21,22 +21,22 @@ interface WorkItem {
   tags: string[];
 }
 
-const Work: React.FC = () => {
-  const [works, setWorks] = useState<WorkItem[]>([]);
-  const [filterWork, setFilterWork] = useState<WorkItem[]>([]);
+const Project: React.FC = () => {
+  const [projects, setProjects] = useState<ProjectItem[]>([]);
+  const [filterProject, setFilterProject] = useState<ProjectItem[]>([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState<{}>({ y: 0, opacity: 1 });
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
+    const query = '*[_type == "projects"]';
 
-    client.fetch(query).then((data: WorkItem[]) => {
-      setWorks(data);
-      setFilterWork(data);
+    client.fetch(query).then((data: ProjectItem[]) => {
+      setProjects(data);
+      setFilterProject(data);
     });
   }, []);
 
-  const handleWorkFilter = (item: string) => {
+  const handleProjectFilter = (item: string) => {
     setActiveFilter(item);
     setAnimateCard([{ y: 100, opacity: 0 }]);
 
@@ -44,9 +44,9 @@ const Work: React.FC = () => {
       setAnimateCard([{ y: 0, opacity: 1 }]);
 
       if (item === "All") {
-        setFilterWork(works);
+        setFilterProject(projects);
       } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)));
+        setFilterProject(projects.filter((project) => project.tags.includes(item)));
       }
     }, 500);
   };
@@ -61,7 +61,7 @@ const Work: React.FC = () => {
         {["React", "MERN", "Next", "Fullstack", "All"].map((item, index) => (
           <div
             key={index}
-            onClick={() => handleWorkFilter(item)}
+            onClick={() => handleProjectFilter(item)}
             className={`app__work-filter-item app__flex p-text ${
               activeFilter === item ? "item-active" : ""
             }`}
@@ -76,12 +76,12 @@ const Work: React.FC = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__work-portfolio"
       >
-        {filterWork.map((work, index) => (
+        {filterProject.map((project, index) => (
           <div className="app__work-item app__flex" key={index}>
             <div className="app__work-img app__flex">
               <Image
-                src={urlFor(work.imgUrl).url()}
-                alt={work.name}
+                src={urlFor(project.imgUrl).url()}
+                alt={project.name}
                 width={235}
                 height={225}
               />
@@ -95,7 +95,7 @@ const Work: React.FC = () => {
                 }}
                 className="app__work-hover app__flex"
               >
-                <a href={work.projectLink} target="_blank" rel="noreferrer">
+                <a href={project.projectLink} target="_blank" rel="noreferrer">
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -105,7 +105,7 @@ const Work: React.FC = () => {
                     <AiFillEye />
                   </motion.div>
                 </a>
-                <a href={work.codeLink} target="_blank" rel="noreferrer">
+                <a href={project.codeLink} target="_blank" rel="noreferrer">
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -119,13 +119,13 @@ const Work: React.FC = () => {
             </div>
 
             <div className="app__work-content app__flex">
-              <h4 className="bold-text">{work.title}</h4>
+              <h4 className="bold-text">{project.title}</h4>
               <p className="p-text" style={{ marginTop: 10 }}>
-                {work.description}
+                {project.description}
               </p>
 
               <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
+                <p className="p-text">{project.tags[0]}</p>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ const Work: React.FC = () => {
 };
 
 export default Wrapper(
-  MotionWrap(Work, "app__works"),
+  MotionWrap(Project, "app__works"),
   "projects",
   "app__primarybg"
 );
