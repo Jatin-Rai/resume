@@ -12,15 +12,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@netlify/plugin-nextjs": "^4.41.2",
     "@portabletext/react": "^3.0.11",
     "@sanity/client": "^6.7.0",
     "@sanity/image-url": "^1.0.2",
+    "@vercel/analytics": "^1.2.2",
     "framer-motion": "^10.16.4",
     "next": "^14.0.2",
     "next-sanity": "^5.5.10",
     "next-sanity-image": "^6.1.0",
-    "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",

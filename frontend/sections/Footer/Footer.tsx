@@ -6,25 +6,25 @@ import "./Footer.scss";
 import Image from "next/image";
 
 import { images } from "@/constants";
-import { client } from "@/sanity/client";
 import { Wrapper, MotionWrap } from "@/wrapper";
 
+import sendEmail from "@/utils/sendEmail";
+
 interface FormData {
-  username: string;
+  name: string;
   email: string;
   message: string;
 }
 
 const Footer: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    username: "",
+    name: "",
     email: "",
     message: "",
   });
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const { username, email, message } = formData;
+  const [isSending, setIsSending] = useState(false);
+  const [sendSuccess, setSendSuccess] = useState(false);
+  const [sendError, setSendError] = useState("");
 
   const handleChangeInput = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -33,23 +33,21 @@ const Footer: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
-    setLoading(true);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSending(true);
+    setSendSuccess(false);
+    setSendError("");  // Clear previous errors
 
-    const contact = {
-      _type: "contact",
-      name: formData.username,
-      email: formData.email,
-      message: formData.message,
-    };
-
-    client
-      .create(contact)
-      .then(() => {
-        setLoading(false);
-        setIsFormSubmitted(true);
-      })
-      .catch((err) => console.log(err));
+    try {
+      await sendEmail(formData);
+      setSendSuccess(true);
+      setFormData({ name: "", email: "", message: "" });  // Reset form on success
+    } catch (error) {
+      setSendError("Failed to send message. Please try again later.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -58,7 +56,6 @@ const Footer: React.FC = () => {
       <h2 className="head-text">
         Take a <span>coffee</span> & <span>chat</span> with me
       </h2>
-
       <div className="app__footer-cards">
         <div className="app__footer-card ">
           <Image src={images.email} alt="email" />
@@ -73,16 +70,17 @@ const Footer: React.FC = () => {
           </a>
         </div>
       </div>
-      {!isFormSubmitted ? (
-        <div className="app__footer-form app__flex">
+      {!sendSuccess && (
+        <form onSubmit={handleSubmit} className="app__footer-form app__flex">
           <div className="app__flex">
             <input
               className="p-text"
               type="text"
               placeholder="Your Name"
-              name="username"
-              value={username}
+              name="name"
+              value={formData.name}
               onChange={handleChangeInput}
+              aria-label="Your Name"
             />
           </div>
           <div className="app__flex">
@@ -91,24 +89,32 @@ const Footer: React.FC = () => {
               type="email"
               placeholder="Your Email"
               name="email"
-              value={email}
+              value={formData.email}
               onChange={handleChangeInput}
+              aria-label="Your Email"
             />
           </div>
           <div>
             <textarea
               className="p-text"
               placeholder="Your Message"
-              value={message}
+              value={formData.message}
               name="message"
               onChange={handleChangeInput}
+              aria-label="Your Message"
             />
           </div>
-          <button type="button" className="p-text" onClick={handleSubmit}>
-            {!loading ? "Send Message" : "Sending..."}
+          <button type="submit" className="p-text" disabled={isSending}>
+            {!isSending ? "Send Message" : "Sending..."}
           </button>
+        </form>
+      )}
+      {sendError && (
+        <div>
+          <h3 className="head-text">{sendError}</h3>
         </div>
-      ) : (
+      )}
+      {sendSuccess && (
         <div>
           <h3 className="head-text">Thank you for getting in touch!</h3>
         </div>
