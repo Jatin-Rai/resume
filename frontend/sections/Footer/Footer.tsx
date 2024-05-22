@@ -16,6 +16,10 @@ interface FormData {
   message: string;
 }
 
+interface TemplateParams {
+  [key: string]: string;
+}
+
 const Footer: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -39,8 +43,14 @@ const Footer: React.FC = () => {
     setSendSuccess(false);
     setSendError("");  // Clear previous errors
 
+    const templateParams: TemplateParams = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
+
     try {
-      await sendEmail(formData);
+      await sendEmail(templateParams);
       setSendSuccess(true);
       setFormData({ name: "", email: "", message: "" });  // Reset form on success
     } catch (error) {

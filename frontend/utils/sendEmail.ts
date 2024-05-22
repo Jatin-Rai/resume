@@ -1,6 +1,8 @@
 import emailjs from "@emailjs/browser";
 
-type TemplateParams = Record<string, unknown>
+interface TemplateParams {
+  [key: string]: string;
+}
 
 const sendEmail = async (templateParams: TemplateParams): Promise<void> => {
   try {
