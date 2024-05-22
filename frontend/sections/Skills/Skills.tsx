@@ -36,6 +36,7 @@ const Skills: React.FC = () => {
     const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then((data) => {
+      data.sort((a: any, b: any) => (a.year > b.year ? -1 : 1));
       setExperiences(data);
     });
 
@@ -76,7 +77,7 @@ const Skills: React.FC = () => {
           ))}
         </motion.div>
         <div className="app__skills-exp">
-          {experiences?.map((experience) => (
+          {experiences.map((experience) => (
             <motion.div className="app__skills-exp-item" key={experience.year}>
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
