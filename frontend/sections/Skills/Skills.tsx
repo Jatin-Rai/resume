@@ -36,7 +36,14 @@ const Skills: React.FC = () => {
     const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then((data) => {
-      data.sort((a: any, b: any) => (a.year > b.year ? -1 : 1));
+       // Parse the year ranges into objects with separate start and end dates
+    data.forEach((exp: any) => {
+      const [endMonth, endYear] = exp.year.split(/[\s-]+/);
+      exp.endDate = new Date(`${endMonth} ${endYear}`);
+    });
+    
+    // Sort experiences in descending order based on the end date
+    data.sort((a:any, b:any) => (a.endDate > b.endDate ? -1 : 1));
       setExperiences(data);
     });
 
