@@ -19,11 +19,11 @@
     "@sanity/image-url": "^1.0.2",
     "@vercel/analytics": "^1.2.2",
     "framer-motion": "^10.16.4",
-    "next": "^14.0.2",
+    "next": "^14.2.4",
     "next-sanity": "^5.5.10",
     "next-sanity-image": "^6.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-icons": "^4.11.0",
     "react-tooltip": "^4.2.21",
     "sass": "^1.69.5",
@@ -34,7 +34,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "^14.0.2",
+    "eslint-config-next": "^14.2.4",
     "typescript": "^5"
   }
 }
