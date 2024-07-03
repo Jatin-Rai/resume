@@ -45,8 +45,6 @@ const Header: React.FC<HeaderProps> = () => {
           <div className="tag-cmp app__flex">
             <p className="p-text">Frontend Developer</p>
             <p className="p-text">Software Engineer</p>
-            <p className="p-text">Web Developer</p>
-            <p className="p-text">Tech Geek</p>
           </div>
           <div className="tag-cmp app__flex">
             <a
